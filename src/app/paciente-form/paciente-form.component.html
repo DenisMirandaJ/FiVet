@@ -14,7 +14,7 @@
       <div class = "col-sm">
         <div class="form-group">
           <label for="nombreInput">Nombre</label>
-          <input type="text" class="form-control" id="nombreInput" placeholder="Nombre" [(ngModel)]="paciente.nombre" name="name">
+          <input type="text" class="form-control" id="nombreInput" placeholder="Nombre" [(ngModel)]="paciente.nombre" name="nombre">
         </div>
 
         <div class="form-group">
@@ -43,13 +43,12 @@
 
         <div class="form-group">
           <label for="ultimaVisitaInput">Última visita</label>
-          <input data-date-format="DD-MM-YYYYTHH:mm:ss" name="ultimaVisita" class="form-control" [(ngModel)]="paciente.ultimaVisita" type="datetime-local" id="ultimaVisitaInput">
+          <input ui-date-format="DD-MM-YYYYTHH:mm:ssZ" name="ultimaVisita" class="form-control" [(ngModel)]="paciente.ultimaVisita" type="datetime-local" id="ultimaVisitaInput">
         </div>
 
-        <button type="submit" class="btn col-centered btn-primary">Guardar</button>
+        <button type="submit" class="btn col-centered btn-primary">{{getButtonName()}}</button>
       </div>
     </div>
   </form>
 </div>
-<p>Estado: {{paciente.ultimaVisita}}</p>
-<p>FechaPaciente: {{getUltimaVisita()}}</p>
+<p>Estado: {{pacienteExistente}}</p>

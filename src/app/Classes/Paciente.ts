@@ -8,7 +8,7 @@ export class Paciente {
         public clientes?: String[],
         public castrado: String = "NO",
         public chip?: string,
-        public ultimaVisita?: Date,
+        public ultimaVisita?: String,
         public foto?: ArrayBuffer
         ){}
 }

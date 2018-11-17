@@ -15,7 +15,8 @@ import { PacienteSearchBoxService } from './paciente-search-box.service';
 //TODO: Implementar busqueda, por ahora solo devuelve un id especifico.
 export class PacienteSearchBoxComponent implements OnInit {
 
-  pacienteId:string = "5be9c39f75d816ba6b8631bf";
+  //pacienteId:string = "5bf0777d0ee7b83b1ca74005";
+  pacienteId:string = "";
   paciente:Paciente = new Paciente();
   castrado:string = "true";
 
@@ -26,14 +27,13 @@ export class PacienteSearchBoxComponent implements OnInit {
 
     if(this.pacienteId){
       url += this.pacienteId;
-    }
-
-    this.http
+      
+      this.http
       .get<Paciente>(url)
       .subscribe(
         data => {
           this.paciente = data;
-          console.log("subscribe",this.paciente);
+          //console.log("subscribe",this.paciente);
           this.selectPaciente(this.paciente);
         },
         error => {
@@ -43,6 +43,11 @@ export class PacienteSearchBoxComponent implements OnInit {
           }
         }
       );
+    } else {
+      this.selectPaciente(new Paciente());
+    }
+
+    
     //TODO: Revisar el formato de la fecha.
     //TODO: Revisar que pasa si no se encuentra ningun paciente.
   }
