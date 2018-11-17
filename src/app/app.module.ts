@@ -7,17 +7,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PacienteFormComponent } from './paciente-form/paciente-form.component';
 import { RegistroMedicoFormsComponent } from './registro-medico-forms/registro-medico-forms.component';
-import { ClienteSmallFormComponent } from './cliente-small-form/cliente-small-form.component';
 import { PacienteSearchBoxComponent } from './paciente-search-box/paciente-search-box.component';
 import { PacienteSearchBoxService } from './paciente-search-box/paciente-search-box.service';
+import { ClienteSelectorComponent } from './cliente-selector/cliente-selector.component';
+import { ClienteFormComponent } from './cliente-form/cliente-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PacienteFormComponent,
     RegistroMedicoFormsComponent,
-    ClienteSmallFormComponent,
-    PacienteSearchBoxComponent
+    PacienteSearchBoxComponent,
+    ClienteSelectorComponent,
+    ClienteFormComponent
   ],
   imports: [
     BrowserModule,
