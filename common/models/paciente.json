@@ -1,0 +1,41 @@
+{
+  "name": "Paciente",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "especie": {
+      "type": "string",
+      "required": true
+    },
+    "raza": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "castrado": {
+      "type": "boolean"
+    },
+    "chip": {
+      "type": "string",
+      "default": "NO"
+    },
+    "ultimaVisita": {
+      "type": "date"
+    },
+    "foto": {
+      "type": "buffer"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
