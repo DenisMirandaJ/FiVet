@@ -1,6 +1,6 @@
-.column {
+.col-sm {
     float: left;
-    width: 50%;
+    margin-left: 10%;
 }
 
 /* Clear floats after the columns */
@@ -11,5 +11,5 @@
 }
 
 .img-fluid {
-    width: 80%;
+    width: 30;
 }

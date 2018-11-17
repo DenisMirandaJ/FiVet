@@ -1,4 +1,5 @@
 import { Component, OnInit, HostBinding} from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import {Paciente} from "../Classes/Paciente";
 import {PacienteSearchBoxService} from '../paciente-search-box/paciente-search-box.service';
@@ -15,7 +16,9 @@ export class PacienteFormComponent implements OnInit {
   @HostBinding('class.paciente')
   paciente: Paciente = new Paciente();
   pacienteExistente: boolean;
-  fecha:Date = new Date(Date.now());
+
+  ultimaVisita:Date = new Date(Date.now());
+  estado:string = "";
 
   constructor(private http:HttpClient, private pacienteSearchBoxService:PacienteSearchBoxService) {
   }
@@ -24,6 +27,7 @@ export class PacienteFormComponent implements OnInit {
       (paciente: Paciente) => {
         this.pacienteExistente = paciente._id != undefined;
         this.paciente = paciente;
+        this.ultimaVisita = this.paciente.ultimaVisita;
     });
   }
 
@@ -31,7 +35,7 @@ export class PacienteFormComponent implements OnInit {
     if(this.paciente.ultimaVisita)
       return this.paciente.ultimaVisita;
     else {
-      return new Date(Date.now());
+      return new Date("2018-11-12");
     }
   }
 
@@ -41,5 +45,9 @@ export class PacienteFormComponent implements OnInit {
 
   getButtonName(): string{
     return "Actualizar Paciente";
+  }
+
+  enviarPaciente(form){
+    console.log(form);
   }
 }
