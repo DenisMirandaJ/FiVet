@@ -63,6 +63,7 @@ export class PacienteFormComponent implements OnInit {
       console.log("PACIENTE", this.paciente);
       this.http.post(ApiRestRoutes.pacientesUri, this.paciente).subscribe((res) => {
         console.log("RES", res);
+        this.pacienteExistente = true;
       });
     }
   }

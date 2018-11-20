@@ -11,6 +11,7 @@ import { PacienteSearchBoxComponent } from './paciente-search-box/paciente-searc
 import { PacienteSearchBoxService } from './paciente-search-box/paciente-search-box.service';
 import { ClienteSelectorComponent } from './cliente-selector/cliente-selector.component';
 import { ClienteFormComponent } from './cliente-form/cliente-form.component';
+import { ClienteSelectorService } from './cliente-selector/cliente-selector.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { ClienteFormComponent } from './cliente-form/cliente-form.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [PacienteSearchBoxService],
+  providers: [PacienteSearchBoxService, ClienteSelectorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
