@@ -5,7 +5,6 @@ import {Paciente} from "../Classes/Paciente";
 @Injectable()
 export class PacienteSearchBoxService {
 
-    //pacienteId:string = "5be74e224bb7629b194732f4";
     pacienteId:string = "";
     paciente:Paciente;
     @Output()

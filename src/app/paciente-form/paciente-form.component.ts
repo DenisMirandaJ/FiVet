@@ -5,8 +5,7 @@ import {Paciente} from "../Classes/Paciente";
 import {PacienteSearchBoxService} from '../paciente-search-box/paciente-search-box.service';
 import * as _ from "lodash";
 import 'rxjs/add/operator/map';
-import { url } from 'inspector';
-import { apiRestRoutes } from '../Constants/apiRestRoutes';
+import { ApiRestRoutes } from '../Constants/ApiRestRoutes';
 
 //TODO: - Hacer que reaccione ante una llamada de "nuevo paciente", donde se reinicie todo.
 //      - Hacer que reaccione ante una llamada de Paciente seleccionado.
@@ -41,6 +40,7 @@ export class PacienteFormComponent implements OnInit {
     });
   }
 
+  //TODO: Borrar.
   castradoChanged = (event) => {
     console.log(event.target.checked);
   }
@@ -56,12 +56,12 @@ export class PacienteFormComponent implements OnInit {
     //TODO: - Cambiar pacienteExistente.
     //      - Validar form (modelo) antes de postear.
     if(this.pacienteExistente){
-      this.http.put(apiRestRoutes.pacientesUri, this.paciente).subscribe(() =>{
+      this.http.put(ApiRestRoutes.pacientesUri, this.paciente).subscribe(() =>{
         console.log("Actualizado", this.paciente);
       });
     } else {
       console.log("PACIENTE", this.paciente);
-      this.http.post(apiRestRoutes.pacientesUri, this.paciente).subscribe((res) => {
+      this.http.post(ApiRestRoutes.pacientesUri, this.paciente).subscribe((res) => {
         console.log("RES", res);
       });
     }

@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Paciente} from "../Classes/Paciente";
-import {apiRestRoutes} from "../Constants/apiRestRoutes";
+import {ApiRestRoutes} from "../Constants/ApiRestRoutes";
 import * as _ from "lodash";
 import 'rxjs/add/operator/map';
 import { PacienteSearchBoxService } from './paciente-search-box.service';
@@ -15,15 +15,15 @@ import { PacienteSearchBoxService } from './paciente-search-box.service';
 //TODO: Implementar busqueda, por ahora solo devuelve un id especifico.
 export class PacienteSearchBoxComponent implements OnInit {
 
-  //pacienteId:string = "5bf0777d0ee7b83b1ca74005";
-  pacienteId:string = "";
+  pacienteId:string = "5bf41606dbd5125b6a052c66";
+  //pacienteId:string = "";
   paciente:Paciente = new Paciente();
   castrado:string = "true";
 
   constructor(private http:HttpClient, private pacienteSearchBoxService: PacienteSearchBoxService) { }
 
   ngOnInit() {
-    var url = apiRestRoutes.pacientesUri;
+    var url = ApiRestRoutes.pacientesUri;
 
     if(this.pacienteId){
       url += this.pacienteId;
