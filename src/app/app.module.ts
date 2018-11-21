@@ -12,6 +12,7 @@ import { PacienteSearchBoxService } from './paciente-search-box/paciente-search-
 import { ClienteSelectorComponent } from './cliente-selector/cliente-selector.component';
 import { ClienteFormComponent } from './cliente-form/cliente-form.component';
 import { ClienteSelectorService } from './cliente-selector/cliente-selector.service';
+import { ResgistrosMedicosListComponent } from './resgistros-medicos-list/resgistros-medicos-list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ClienteSelectorService } from './cliente-selector/cliente-selector.serv
     RegistroMedicoFormsComponent,
     PacienteSearchBoxComponent,
     ClienteSelectorComponent,
-    ClienteFormComponent
+    ClienteFormComponent,
+    ResgistrosMedicosListComponent
   ],
   imports: [
     BrowserModule,

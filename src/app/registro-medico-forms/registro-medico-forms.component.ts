@@ -5,6 +5,7 @@ import * as _ from "lodash";
 import 'rxjs/add/operator/map';
 import { Input } from '@angular/core';
 import { Paciente } from '../Classes/Paciente';
+import {Cliente} from '../Classes/Cliente';
 
 @Component({
   selector: 'app-registro-medico-forms',
@@ -13,7 +14,8 @@ import { Paciente } from '../Classes/Paciente';
 })
 export class RegistroMedicoFormsComponent implements OnInit {
   registroMedico: RegistroMedico = new RegistroMedico();
-  paciente: Paciente = new Paciente();
+  paciente: Paciente;
+  cliente: Cliente;
 
   @Input()
   registroMedicoId: string;
@@ -21,21 +23,10 @@ export class RegistroMedicoFormsComponent implements OnInit {
   }
 
   ngOnInit() {
-    var url = "http://localhost:80/registrosMedicos/";
-    var urlPaciente = "http://localhost:80/pacientes/";
-    if(this.registroMedico){
-      url += this.registroMedico;
-    }
-    this.http
-      .get<RegistroMedico>(url)
-      .subscribe(data => {
-        console.log(data);
-        this.registroMedico = data;
-    });
-
-    
-
+    //TODO: suscribir al serivcio de list.
   }
 
-
+  enviarRegistroMedico(form) {
+    
+  }
 }
