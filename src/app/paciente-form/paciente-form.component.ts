@@ -32,6 +32,7 @@ export class PacienteFormComponent implements OnInit {
         if(paciente._id == undefined){
           this.pacienteExistente = false;
           this.paciente.ultimaVisita = new Date(Date.now()).toISOString();
+          this.paciente.ultimaVisita = paciente.ultimaVisita.replace("Z", "");
           this.paciente.ultimaVisita = this.paciente.ultimaVisita.substring(0,this.paciente.ultimaVisita.length - 8);
         } else {
           this.pacienteExistente = true;
@@ -63,6 +64,7 @@ export class PacienteFormComponent implements OnInit {
       console.log("PACIENTE", this.paciente);
       this.http.post(ApiRestRoutes.pacientesUri, this.paciente).subscribe((res) => {
         console.log("RES", res);
+        this.pacienteExistente = true;
       });
     }
   }

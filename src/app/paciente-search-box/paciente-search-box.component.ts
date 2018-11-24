@@ -15,8 +15,8 @@ import { PacienteSearchBoxService } from './paciente-search-box.service';
 //TODO: Implementar busqueda, por ahora solo devuelve un id especifico.
 export class PacienteSearchBoxComponent implements OnInit {
 
-  pacienteId:string = "5bf41606dbd5125b6a052c66";
-  //pacienteId:string = "";
+  //pacienteId:string = "5bf417e9dbd5125b6a052c67";
+  pacienteId:string = "";
   paciente:Paciente = new Paciente();
   castrado:string = "true";
 
