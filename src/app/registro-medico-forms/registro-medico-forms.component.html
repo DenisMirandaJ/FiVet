@@ -1,65 +1,84 @@
-<form (ngSubmit)="enviarRegistroMedico(registroMedicoForm.form);" #registroMedicoForm="ngForm">
+<form (ngSubmit)="enviarRegistroMedico();" #registroMedicoForm="ngForm">
     <div class="form-group">
         <label for="fechaInput">Fecha</label>
-        <input ui-date-format="DD-MM-YYYYTHH:mm:ssZ" name="fecha" class="form-control" [(ngModel)]="registroMedico.fecha" type="datetime-local" id="fechaInput">
+        <input type="datetime-local" name="fechaInput" ui-date-format="DD-MM-YYYYTHH:mm:ssZ" [(ngModel)]="registroMedico.fecha" name="fecha" class="form-control" id="fechaInput">
     </div>
 
     <div class="form-group">
-    <input type="text" [(ngModel)]="registroMedico.anamnesia" class="form-control" id="anamnesiaInput" placeholder="Anamnesia">
+            <label for="anamnesiaInput">Anamnesia</label>
+    <input type="text" [(ngModel)]="registroMedico.anamnesia" class="form-control" id="anamnesiaInput" placeholder="Anamnesia" name="anamnesiaInput">
     </div>
 
     <div class="form-group">
-        <input type="text" [(ngModel)]="registroMedico.peso" class="form-control" id="pesoInput" placeholder="Peso">
+            <label for="pesoInput">Peso</label>
+        <input type="text" [(ngModel)]="registroMedico.peso" class="form-control" id="pesoInput" placeholder="Peso" name="pesoInput">
     </div>
 
     <div class="form-group">
-        <input type="text" [(ngModel)]="registroMedico.temperatura" class="form-control" id="temperaturaInput" placeholder="Temperatura">
+            <label for="temperaturaInput">Temperatura</label>
+        <input type="text" [(ngModel)]="registroMedico.temperatura" class="form-control" id="temperaturaInput" placeholder="Temperatura" name="temperaturaInput">
     </div>
 
     <div class="form-group">
-        <input type="text" [(ngModel)]="registroMedico.hidratacion" class="form-control" id="hidratacionInput" placeholder="Hidratacion">
+            <label for="hidratacionInput">Hidratacion</label>
+        <input type="text" [(ngModel)]="registroMedico.hidratacion" class="form-control" id="hidratacionInput" placeholder="Hidratacion" name="hidratacionInput">
     </div>
 
     <div class="form-group">
-        <input type="text" [(ngModel)]="registroMedico.pulso" class="form-control" id="pulsoInput" placeholder="Pulso">
+            <label for="pulsoInput">Pulso</label>
+        <input type="text" [(ngModel)]="registroMedico.pulso" class="form-control" id="pulsoInput" placeholder="Pulso" name="pulsoInput">
     </div>
 
     <div class="form-group">
-        <input type="text" [(ngModel)]="registroMedico.frecuenciaCardiaca" class="form-control" id="frecuenciaCardiacaInput" placeholder="Frecuencia cardiaca">
+            <label for="frecuenciaCardiacaInput">Frecuencia cardiaca</label>
+        <input type="text" [(ngModel)]="registroMedico.frecuenciaCardiaca" class="form-control" id="frecuenciaCardiacaInput" placeholder="Frecuencia cardiaca" name="frecuenciaCardiacaInput">
     </div>
 
     <div class="form-group">
-        <input type="text" [(ngModel)]="registroMedico.frecuenciaRespiratoria" class="form-control" id="frecuenciaRespiratoriaInput" placeholder="Frecuencia respiratoria">
+            <label for="frecuenciaRespiratoriaInput">Frecuencia respiratoria</label>
+        <input type="text" [(ngModel)]="registroMedico.frecuenciaRespiratoria" class="form-control" id="frecuenciaRespiratoriaInput" placeholder="Frecuencia respiratoria" name="frecuenciaRespiratoriaInput">
     </div>
     <div class="form-group">
-        <input type="text" [(ngModel)]="registroMedico.mucosas" class="form-control" id="mucosasInput" placeholder="Mucosas">
-    </div>
-
-    <div class="form-group">
-        <input type="text" [(ngModel)]="registroMedico.tiempoDeLlenadoCapilar" class="form-control" id="tiempoDeLlenadoCapilarInput" placeholder="Tiempo de llenado capilar">
+            <label for="mucosasInput">Mucosas</label>
+        <input type="text" [(ngModel)]="registroMedico.mucosas" class="form-control" id="mucosasInput" placeholder="Mucosas" name="mucosasInput">
     </div>
 
     <div class="form-group">
-        <input type="text" [(ngModel)]="registroMedico.ganglios" class="form-control" id="gangliosInput" placeholder="Ganglios">
+            <label for="tiempoDeLlenadoCapilarInput">Tiempo de llenado capilar</label>
+        <input type="text" [(ngModel)]="registroMedico.tiempoDeLlenadoCapilar" class="form-control" id="tiempoDeLlenadoCapilarInput" placeholder="Tiempo de llenado capilar" name="tiempoDeLlenadoCapilarInput">
     </div>
 
     <div class="form-group">
-        <input type="text" [(ngModel)]="registroMedico.reflejoTusigeno" class="form-control" id="reflejoTusigenoInput" placeholder="Reflejo Tusigeno">
+            <label for="gangliosInput">Ganglios</label>
+        <input type="text" [(ngModel)]="registroMedico.ganglios" class="form-control" id="gangliosInput" placeholder="Ganglios" name="gangliosInput">
+    </div>
+
+    <div class="form-group">
+            <label for="reflejoTusigenoInput">Reflejo tusigeno</label>
+        <input type="text" [(ngModel)]="registroMedico.reflejoTusigeno" class="form-control" id="reflejoTusigenoInput" placeholder="Reflejo Tusigeno" name="reflejoTusigenoInput">
     </div>
     
     <div class="form-group">
-        <input type="text" [(ngModel)]="registroMedico.reflejoDeglutorio" class="form-control" id="palpitacionAbdominalInput" placeholder="Palpitacion Abdominal">
+            <label for="reflejoDeglutorioInput">Reflejo deglutorio</label>
+        <input type="text" [(ngModel)]="registroMedico.reflejoDeglutorio" class="form-control" id="reflejoDeglutorioInput" placeholder="Reflejo Deglutorio" name="reflejoDeglutorioInput">
     </div>
 
     <div class="form-group">
-        <input type="text" [(ngModel)]="registroMedico.palpitacionAbdominal" class="form-control" id="reflejoDeglutorioInput" placeholder="Reflejo Deglutorio">
+            <label for="palpitacionAbdominalInput">Palpitacion abdominal</label>
+        <input type="text" [(ngModel)]="registroMedico.palpitacionAbdominal" class="form-control" id="palpitacionAbdominalInput" placeholder="Palpitacion Abdominal" name="palpitacionAbdominalInput">
     </div>
 
     <div class="form-group">
-        <input type="text" [(ngModel)]="registroMedico.palmopercusion" class="form-control" id="palmopercusionInput" placeholder="Palmopercusion">
+            <label for="palmopercusionInput">Palmopercusion</label>
+        <input type="text" [(ngModel)]="registroMedico.palmopercusion" class="form-control" id="palmopercusionInput" placeholder="Palmopercusion" name="palmopercusionInput">
     </div>
 
     <div class="form-group">
-        <input type="text" [(ngModel)]="registroMedico.condicionCorporal" class="form-control" id="condicionCorporalInput" placeholder="Condicion corporal">
+            <label for="condicionCorporalInput">Condicion corporal</label>
+        <input type="text" [(ngModel)]="registroMedico.condicionCorporal" class="form-control" id="condicionCorporalInput" placeholder="Condicion corporal" name="condicionCorporalInput">
     </div>
+    
+    <button type="submit" class="btn col-centered btn-primary">Agregar</button>
+    <button type="button" class="btn btn-danger">Eliminar</button>
+      
     </form>

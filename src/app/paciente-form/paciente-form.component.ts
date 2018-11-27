@@ -46,7 +46,7 @@ export class PacienteFormComponent implements OnInit {
     console.log(event.target.checked);
   }
 
-  getButtonName(): string{
+  getButtonName() {
     if(this.pacienteExistente)
       return "Actualizar Paciente";
     else

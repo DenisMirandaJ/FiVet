@@ -12,7 +12,9 @@ import { PacienteSearchBoxService } from './paciente-search-box/paciente-search-
 import { ClienteSelectorComponent } from './cliente-selector/cliente-selector.component';
 import { ClienteFormComponent } from './cliente-form/cliente-form.component';
 import { ClienteSelectorService } from './cliente-selector/cliente-selector.service';
-import { ResgistrosMedicosListComponent } from './resgistros-medicos-list/resgistros-medicos-list.component';
+import { RegistrosMedicosListComponent } from './registros-medicos-list/registros-medicos-list.component';
+import { RegistrosMedicosListService } from './registros-medicos-list/registros-medicos-list.service';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,7 @@ import { ResgistrosMedicosListComponent } from './resgistros-medicos-list/resgis
     PacienteSearchBoxComponent,
     ClienteSelectorComponent,
     ClienteFormComponent,
-    ResgistrosMedicosListComponent
+    RegistrosMedicosListComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,7 @@ import { ResgistrosMedicosListComponent } from './resgistros-medicos-list/resgis
     HttpClientModule,
     FormsModule
   ],
-  providers: [PacienteSearchBoxService, ClienteSelectorService],
+  providers: [PacienteSearchBoxService, ClienteSelectorService, RegistrosMedicosListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

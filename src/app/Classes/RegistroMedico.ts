@@ -6,7 +6,7 @@ export class RegistroMedico {
         public _id?: String,
         public pacienteId?: String,
         public clienteId?: String,
-        public fecha?: String,
+        public fecha?: string,
         public anamnesia?: String,
         public peso?: Number,
         public temperatura?: Number,
