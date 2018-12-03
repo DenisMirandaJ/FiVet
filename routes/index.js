@@ -1,9 +1,24 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+// Esto es solo por el momento:
+var indexView = 
+`
+<html>
+    <head>
+        <title>Bienvenido a FiVet</title>
+    </head>
+    <body>
+        <h1>Pagina Principal</h1>
+    </body>
+</html>
+`
+
+/**
+ * Mostrar la pagina principal.
+ */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+  res.send(indexView);
+}); 
 
 module.exports = router;
