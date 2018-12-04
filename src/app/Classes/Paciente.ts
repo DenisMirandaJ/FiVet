@@ -1,6 +1,6 @@
 export class Paciente {
     constructor(
-        public _id?: string,
+        public id?: String,
         public nombre?: string,
         public especie?: string,
         public raza?: string,

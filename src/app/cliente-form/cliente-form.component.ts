@@ -29,11 +29,15 @@ export class ClienteFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    // Se suscribe a las requests de guardar cliente.
+    this.clienteService.clienteSaveRequest.subscribe(this.enviarCliente);
+    // Se suscribe a la selección de cliente (desde buscador u otros).
     this.clienteService.clienteSelected.subscribe(
       (cliente: Cliente) => {
         console.log("SelectorService", cliente);
         this.cliente = cliente;
-        if(cliente._id == undefined){
+        // Se determina si es un cliente existente o nuevo.
+        if(cliente.id == undefined){
           this.clienteExistente = false;
         } else {
           this.clienteExistente = true;
@@ -41,11 +45,13 @@ export class ClienteFormComponent implements OnInit {
     });
   }
 
-  enviarCliente(form) {
+  //Envia el cliente a la RestAPI y emite el mensaje de guardado.
+  enviarCliente() {
     console.log("Enviar Cliente");
     if(this.clienteExistente) {
       this.http.put(ApiRestRoutes.clientesUri, this.cliente)
       .subscribe((res)=> {
+        this.clienteService.clienteSaved.emit(this.cliente);
         console.log("ENVIAR_CLIENTE_RES", res);
         this.clienteExistente = true;
         this.cliente = res;
@@ -55,6 +61,7 @@ export class ClienteFormComponent implements OnInit {
     } else {
       this.http.post(ApiRestRoutes.clientesUri, this.cliente)
       .subscribe((res)=> {
+        this.clienteService.clienteSaved.emit(this.cliente);
         console.log("ENVIAR_CLIENTE_RES", res);
         this.clienteExistente = true;
         this.cliente = res;
@@ -64,13 +71,9 @@ export class ClienteFormComponent implements OnInit {
     }
   }
 
+  // Retorna el nombre del boton para guardar.
   getButtonName(){
     return this.clienteExistente ? "Actualizar Cliente" : "Agregar Cliente";
-  }
-
-  errorHandler(error: HttpErrorResponse) {
-    console.log('error',error);
-    return Observable.throw(error.message || "Server Error");
   }
 
 }

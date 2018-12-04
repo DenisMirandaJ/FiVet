@@ -9,9 +9,15 @@ export class PacienteService {
     paciente:Paciente;
     @Output()
     changePaciente: EventEmitter<Paciente> = new EventEmitter();
+    pacienteSaveRequest: EventEmitter<void> = new EventEmitter();
+    pacienteSaved: EventEmitter<Paciente> = new EventEmitter();
 
     selectPaciente(paciente: Paciente){
         this.paciente = paciente;
         this.changePaciente.emit(this.paciente);
+    }
+
+    saveCliente(){
+        this.pacienteSaveRequest.emit();
     }
 }

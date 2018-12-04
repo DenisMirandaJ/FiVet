@@ -25,11 +25,15 @@ export class PacienteFormComponent implements OnInit {
   constructor(private http:HttpClient, private pacienteService:PacienteService) {
   }
   ngOnInit() { 
+    //Se suscribe a las solicitudes de guardado del paciente.
+    this.pacienteService.pacienteSaveRequest.subscribe(this.enviarPaciente);
     this.pacienteExistente = false;
+    //Se suscribe a la seleccion de paciente.
     this.pacienteService.changePaciente.subscribe(
       (paciente: Paciente) => {
         this.paciente = paciente;
-        if(paciente._id == undefined){
+        //Se determina si existe o no y se ajusta el formto de fecha
+        if(paciente.id == undefined){
           this.pacienteExistente = false;
           this.paciente.ultimaVisita = new Date(Date.now()).toISOString();
           this.paciente.ultimaVisita = paciente.ultimaVisita.replace("Z", "");
@@ -41,11 +45,7 @@ export class PacienteFormComponent implements OnInit {
     });
   }
 
-  //TODO: Borrar.
-  castradoChanged = (event) => {
-    console.log(event.target.checked);
-  }
-
+  // Retorn el nombre del boton de guardar.
   getButtonName() {
     if(this.pacienteExistente)
       return "Actualizar Paciente";
@@ -53,16 +53,17 @@ export class PacienteFormComponent implements OnInit {
       return "Agregar Paciente";
   }
 
-  enviarPaciente(form){
-    //TODO: - Cambiar pacienteExistente.
-    //      - Validar form (modelo) antes de postear.
+  // Envia al paciente a la RestAPI para su almacenamiento en la base de datos.
+  enviarPaciente(){
     if(this.pacienteExistente){
       this.http.put(ApiRestRoutes.pacientesUri, this.paciente).subscribe(() =>{
+        this.pacienteService.pacienteSaved.emit(this.paciente);
         console.log("Actualizado", this.paciente);
       });
     } else {
       console.log("PACIENTE", this.paciente);
       this.http.post(ApiRestRoutes.pacientesUri, this.paciente).subscribe((res) => {
+        this.pacienteService.pacienteSaved.emit(this.paciente);
         console.log("RES", res);
         this.pacienteExistente = true;
       });

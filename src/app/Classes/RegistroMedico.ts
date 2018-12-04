@@ -3,7 +3,7 @@ import { Vacuna } from "./Vacuna";
 
 export class RegistroMedico {
     constructor(
-        public _id?: String,
+        public id?: String,
         public pacienteId?: String,
         public clienteId?: String,
         public fecha?: string,
