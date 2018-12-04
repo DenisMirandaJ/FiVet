@@ -1,10 +1,8 @@
 <div class="col-sm">
     <form (ngSubmit)=enviarCliente(clienteForm.form) #clienteForm="ngForm">
         <div class="row">
-            <div class="col-xs">
-                <h1>CLIENTE X</h1>
-            </div>
             <div class="col-sm">
+                <h1>CLIENTE</h1>
                 <div class=form-group>
                     <label for="nombreInput">Nombre</label>
                     <input type="text" class="form-control" id="nombreInput" placeholder="Juan Magan" name="nombre" [(ngModel)]="cliente.nombre">

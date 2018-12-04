@@ -5,7 +5,7 @@ import * as _ from "lodash";
 import 'rxjs/add/operator/map';
 import { Input } from '@angular/core';
 import { Paciente } from '../Classes/Paciente';
-import { RegistrosMedicosListService } from '../registros-medicos-list/registros-medicos-list.service';
+import { RegistroMedicoService } from '../Services/RegistroMedicoService';
 import { ApiRestRoutes } from '../Constants/ApiRestRoutes';
 
 
@@ -20,7 +20,7 @@ export class RegistroMedicoFormsComponent implements OnInit {
   clienteId: string;
   registroExistente: boolean;
   
-  constructor(private http:HttpClient, private registrosMedicosListService: RegistrosMedicosListService) {
+  constructor(private http:HttpClient, private registrosMedicosListService: RegistroMedicoService) {
   }
 
   ngOnInit() {

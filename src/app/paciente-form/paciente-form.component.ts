@@ -2,7 +2,7 @@ import { Component, OnInit, HostBinding} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import {Paciente} from "../Classes/Paciente";
-import {PacienteSearchBoxService} from '../paciente-search-box/paciente-search-box.service';
+import {PacienteService} from '../Services/PacienteService';
 import * as _ from "lodash";
 import 'rxjs/add/operator/map';
 import { ApiRestRoutes } from '../Constants/ApiRestRoutes';
@@ -22,11 +22,11 @@ export class PacienteFormComponent implements OnInit {
 
   estado:string = "";
 
-  constructor(private http:HttpClient, private pacienteSearchBoxService:PacienteSearchBoxService) {
+  constructor(private http:HttpClient, private pacienteService:PacienteService) {
   }
   ngOnInit() { 
     this.pacienteExistente = false;
-    this.pacienteSearchBoxService.changePaciente.subscribe(
+    this.pacienteService.changePaciente.subscribe(
       (paciente: Paciente) => {
         this.paciente = paciente;
         if(paciente._id == undefined){

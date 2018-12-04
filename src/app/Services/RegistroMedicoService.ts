@@ -2,7 +2,7 @@ import { EventEmitter, Injectable, Output} from '@angular/core';
 import {RegistroMedico} from "../Classes/RegistroMedico";
 
 @Injectable()
-export class RegistrosMedicosListService {
+export class RegistroMedicoService {
     @Output()
     
     registroMedicoSelected: EventEmitter<RegistroMedico> = new EventEmitter();

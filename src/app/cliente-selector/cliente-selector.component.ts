@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ClienteSelectorService} from './cliente-selector.service';
+import {ClienteService} from '../Services/ClienteService';
 import {HttpClient} from '@angular/common/http';
 import {Cliente} from '../Classes/Cliente';
 import {ApiRestRoutes} from '../Constants/ApiRestRoutes';
@@ -18,25 +18,25 @@ export class ClienteSelectorComponent implements OnInit {
   //TODO: - clienteId solo es pra prueba.
   //      - cliente no es necesario.
   //clienteId: String = "5bead431f34cc1be7a08d3b2";
-  clienteId: String ="";
+  clienteId: String ="3";
   cliente: Cliente;
-  constructor(private http: HttpClient ,private clienteSelectorService : ClienteSelectorService) { }
+  constructor(private http: HttpClient ,private clienteService : ClienteService) { }
 
   ngOnInit() {
     if(this.clienteId){
       this.http.get<Cliente>(ApiRestRoutes.clientesUri + this.clienteId).subscribe(
         cliente => {
-          this.clienteSelectorService.selectCliente(cliente);
+          this.clienteService.selectCliente(cliente);
         },
         error => {
           if(error.status == 404){
             //se manda un paciente vacio (atributos undefined)
-            this.clienteSelectorService.selectCliente(new Cliente());
+            this.clienteService.selectCliente(new Cliente());
           }
         }
       );
     } else {
-      this.clienteSelectorService.selectCliente(new Cliente());
+      this.clienteService.selectCliente(new Cliente());
     }
   }
 }

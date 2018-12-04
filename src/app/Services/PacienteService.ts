@@ -3,7 +3,7 @@ import {Paciente} from "../Classes/Paciente";
 
 //Caja de busqueda de paciente
 @Injectable()
-export class PacienteSearchBoxService {
+export class PacienteService {
 
     pacienteId:string = "";
     paciente:Paciente;

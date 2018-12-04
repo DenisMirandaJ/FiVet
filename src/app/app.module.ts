@@ -8,12 +8,12 @@ import { AppComponent } from './app.component';
 import { PacienteFormComponent } from './paciente-form/paciente-form.component';
 import { RegistroMedicoFormsComponent } from './registro-medico-forms/registro-medico-forms.component';
 import { PacienteSearchBoxComponent } from './paciente-search-box/paciente-search-box.component';
-import { PacienteSearchBoxService } from './paciente-search-box/paciente-search-box.service';
+import { PacienteService } from './Services/PacienteService';
 import { ClienteSelectorComponent } from './cliente-selector/cliente-selector.component';
 import { ClienteFormComponent } from './cliente-form/cliente-form.component';
-import { ClienteSelectorService } from './cliente-selector/cliente-selector.service';
+import { ClienteService } from './Services/ClienteService';
 import { RegistrosMedicosListComponent } from './registros-medicos-list/registros-medicos-list.component';
-import { RegistrosMedicosListService } from './registros-medicos-list/registros-medicos-list.service';
+import { RegistroMedicoService } from './Services/RegistroMedicoService';
 
 
 @NgModule({
@@ -32,7 +32,7 @@ import { RegistrosMedicosListService } from './registros-medicos-list/registros-
     HttpClientModule,
     FormsModule
   ],
-  providers: [PacienteSearchBoxService, ClienteSelectorService, RegistrosMedicosListService],
+  providers: [PacienteService, ClienteService, RegistroMedicoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

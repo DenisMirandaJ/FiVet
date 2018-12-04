@@ -4,7 +4,7 @@ import {Paciente} from "../Classes/Paciente";
 import {ApiRestRoutes} from "../Constants/ApiRestRoutes";
 import * as _ from "lodash";
 import 'rxjs/add/operator/map';
-import { PacienteSearchBoxService } from './paciente-search-box.service';
+import { PacienteService } from '../Services/PacienteService';
 
 @Component({
   selector: 'app-paciente-search-box',
@@ -20,7 +20,7 @@ export class PacienteSearchBoxComponent implements OnInit {
   paciente:Paciente = new Paciente();
   castrado:string = "true";
 
-  constructor(private http:HttpClient, private pacienteSearchBoxService: PacienteSearchBoxService) { }
+  constructor(private http:HttpClient, private pacienteSearchBoxService: PacienteService) { }
 
   ngOnInit() {
     var url = ApiRestRoutes.pacientesUri;
