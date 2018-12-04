@@ -10,10 +10,6 @@ const registroMedicoRouter = require('./routes/registroMedico');
 
 // Instanciar la app.
 const app = express();
-
-// Middleware:
-app.use(bodyParser.json());
-app.use(express.urlencoded({ extended: false }));
 app.use(function (req, res, next) {
 
   // Website you wish to allow to connect
@@ -32,6 +28,10 @@ app.use(function (req, res, next) {
   // Pass to next layer of middleware
   next();
 });
+
+// Middleware:
+app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: false }));
 
 // Especificar Rutas:
 app.use('/', indexRouter);

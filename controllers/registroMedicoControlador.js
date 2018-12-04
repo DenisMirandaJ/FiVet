@@ -3,14 +3,14 @@ var router = express.Router();
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
-// Obtener modelo RegistroMedico.
 const RegistroMedico = require('../models/index').RegistroMedico;
+const Cliente = require('../models/index').Cliente;
+const Paciente = require('../models/index').Paciente;
 
-/**
- * Muestra una lista con todos los registroMedicos.
- */
-router.get('/', (req, res, next) => {
-    return RegistroMedico.findAll()
+
+module.exports = {
+    listar: function(req, res) {
+        return RegistroMedico.findAll()
         .then((registroMedicos) => {
             res.send(registroMedicos);
             console.log(JSON.stringify(registroMedicos));
@@ -19,13 +19,10 @@ router.get('/', (req, res, next) => {
             console.log('Ocurrio un error al obtener los registroMedicos...', JSON.stringify(err))
             return res.send(err)
         });
-});
+    },
 
-/**
- * Realiza una consulta a la tabla RegistroMedico y retorna los resultados.
- */
-router.get('/search', (req, res) => {
-    // Obtener la consulta. 
+    metabuscador: function(req, res) {
+        // Obtener la consulta. 
     var query = req.body.query;
     var likeQuery = "%"+query+"%";
 
@@ -62,13 +59,10 @@ router.get('/search', (req, res) => {
             console.log('Ocurrio un error al obtener los resultados...', JSON.stringify(err))
             return res.send(err)
         });
-});
+    },
 
-/**
- * Crea un RegistroMedico
- */
-router.post('/', (req, res) => {
-    return RegistroMedico.findOrCreate({where: req.body})
+    crear: function(req, res) {
+        return RegistroMedico.findOrCreate({where: req.body})
         .spread((registroMedico, created) => {
             console.log(registroMedico.get({
                 plain: true
@@ -86,24 +80,22 @@ router.post('/', (req, res) => {
             res.send(err);
             return;
         })
-})
+    },
 
-router.put('/', (req, res) => {
-    return RegistroMedico.findAll({ where: { id: req.body.id } })
-    .spread(function (registroMedico) {
-        // Check if record exists in db
-        if (registroMedico) {
-            registroMedico.update(req.body);
-            //.success(function () {res.send(registroMedico.get({plain: true}));})
-            res.send(registroMedico.get({plain: true}));
-        }
-    }, function(err) {
-        res.status(400);
-        res.send(err);
-        return;
-    })
-})
+    actualizar: function(req, res) {
+        return RegistroMedico.findAll({ where: { id: req.body.id } })
+        .spread(function (registroMedico) {
+            // Check if record exists in db
+            if (registroMedico) {
+                registroMedico.update(req.body);
+                //.success(function () {res.send(registroMedico.get({plain: true}));})
+                res.send(registroMedico.get({plain: true}));
+            }
+        }, function(err) {
+            res.status(400);
+            res.send(err);
+            return;
+        })
+    }
+}
 
-
-// Exportar el router.
-module.exports = router;
