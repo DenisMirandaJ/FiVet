@@ -7,7 +7,9 @@ module.exports = (sequelize, DataTypes) => {
     edad_anios: DataTypes.INTEGER,
     edad_meses: DataTypes.INTEGER,
     raza: DataTypes.STRING,
-    color: DataTypes.STRING
+    color: DataTypes.STRING,
+    castrado: DataTypes.STRING
+
   }, {
     //Evitar que sequelize modifique el nombre de la tabla.
     freezeTableName: true,

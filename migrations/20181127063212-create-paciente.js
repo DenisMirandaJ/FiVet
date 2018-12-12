@@ -29,6 +29,9 @@ module.exports = {
       color: {
         type: Sequelize.STRING
       },
+      castrado: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
